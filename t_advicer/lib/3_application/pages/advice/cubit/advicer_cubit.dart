@@ -12,10 +12,8 @@ const serverFailureMessage = 'Ups Api error , Please try again';
 const casheFailureMessage = 'Ups cashe failed , Please try again';
 
 class AdvicerCubit extends Cubit<AdvicerCubitState> {
-  AdvicerCubit() : super(AdvicerInitial());
-
-  final AdviceUseUsecases adviceUseUsecases = AdviceUseUsecases();
-  //could also use other usecases
+  final AdviceUseUsecases adviceUseUsecases;
+  AdvicerCubit({required this.adviceUseUsecases}) : super(AdvicerInitial());
 
   void AdviceRequested() async {
     emit(AdvicerStateLoading());

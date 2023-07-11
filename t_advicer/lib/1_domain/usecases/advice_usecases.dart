@@ -1,15 +1,14 @@
 import 'package:dartz/dartz.dart';
+import 'package:t_advicer/0_data/repositories/advice_repo_impl.dart';
 import 'package:t_advicer/1_domain/entities/advice_entity.dart';
 import 'package:t_advicer/1_domain/failures/failures.dart';
+import 'package:t_advicer/1_domain/repositories/advice_repo.dart';
 
 class AdviceUseUsecases {
+  AdviceUseUsecases({required this.adviceRepo});
+  final AdviceRepo adviceRepo;
   Future<Either<Failure, AdviceEntity>> getAdvice() async {
-    //call a repository to get data (failuer or data)
-    //proceed with bisuness logic(manipulate the data)
-    await Future.delayed(const Duration(seconds: 3), () {});
-    //call to repo went good: -> return data not failure
-    // return right(AdviceEntity(advice: 'advice to test', id: 1));
-    //call to repo went bad or logic had an error -> return failure (left side)
-    return left(CasheFailure());
+    return adviceRepo.getAdviceFromDatasource();
+    //space for business logic
   }
 }

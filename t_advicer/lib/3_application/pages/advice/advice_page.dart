@@ -8,6 +8,7 @@ import 'package:t_advicer/3_application/pages/advice/cubit/advicer_cubit.dart';
 import 'package:t_advicer/3_application/pages/advice/widgets/advice_widget.dart';
 import 'package:t_advicer/3_application/pages/advice/widgets/custom_button.dart';
 import 'package:t_advicer/3_application/pages/advice/widgets/error_message.dart';
+import 'package:t_advicer/injection.dart';
 
 class AdvicerPageWrapperProvider extends StatelessWidget {
   const AdvicerPageWrapperProvider({super.key});
@@ -16,7 +17,7 @@ class AdvicerPageWrapperProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       // create: (context) => AdvicerBloc(),
-      create: (context) => AdvicerCubit(),
+      create: (context) => sl<AdvicerCubit>(),
       child: const AdvicerPage(),
     );
   }
